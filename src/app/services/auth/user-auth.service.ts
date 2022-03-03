@@ -9,13 +9,16 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserAuthService {
+  //***************************Propterties Section *********************/
   securityObject: UserAuth = new UserAuth();
   readonly APIUrl_UserAuth = environment.APIUrl + 'Users';
+
   public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
   public username: BehaviorSubject<string> = new BehaviorSubject<string>('');
-
+  public userrole: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  public admin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient, private router: Router) {}
 
   resetSecurityObject(): void {
@@ -24,6 +27,7 @@ export class UserAuthService {
     this.securityObject.isAuthenticated = false;
     this.securityObject.role = '';
   }
+  //****************** Make Properties Oberservable *******************/
 
   get isLoggedIn() {
     return this.loggedIn.asObservable();
@@ -32,6 +36,15 @@ export class UserAuthService {
   get loggedinUsername() {
     return this.username.asObservable();
   }
+
+  get role() {
+    return this.userrole.asObservable();
+  }
+
+  get isAdmin() {
+    return this.admin.asObservable();
+  }
+
   //****************** Sign Up Section *******************/
   signup(params: any) {
     let apiurl = this.APIUrl_UserAuth + '/signup';
@@ -68,9 +81,11 @@ export class UserAuthService {
           Object.assign(this.securityObject, result);
           this.loggedIn.next(true);
           this.username.next(this.securityObject.userName);
+          this.userrole.next(this.securityObject.role);
           this.router.navigate(['userprofile/dashboard']);
           localStorage.setItem('bearerToken', this.securityObject.bearerToken);
           localStorage.setItem('username', this.securityObject.userName);
+          localStorage.setItem('role', this.securityObject.role);
           localStorage.setItem(
             'isLoggedIn',
             String(this.securityObject.isAuthenticated)
@@ -86,9 +101,22 @@ export class UserAuthService {
   logout() {
     this.resetSecurityObject();
     this.loggedIn.next(false);
+    this.admin.next(false);
     localStorage.removeItem('bearerToken');
     localStorage.removeItem('username');
     localStorage.removeItem('isLoggedIn');
     this.router.navigate(['/login']);
+  }
+
+  changepwd(param: any) {
+    //console.log(param);
+    return this.http.put(this.APIUrl_UserAuth + '/changepwd', param).subscribe({
+      next: (result) => {
+        alert('Password has been changed!');
+      },
+      error: (err) => {
+        alert('Password Change failed.');
+      },
+    });
   }
 }

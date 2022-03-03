@@ -1,1 +1,27 @@
-<p>user-settings works!</p>
+<div>
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="Change Profile"></mat-tab>
+  <mat-tab label="Change Password">
+    <app-change-password></app-change-password>
+  </mat-tab>
+  
+  <div *ngIf="isAdmin ==false">
+  <mat-tab label="Subscription">
+    My Subscription
+  </mat-tab>
+</div>
+
+  <div *ngIf="isAdmin">
+  <mat-tab  label="User Management(Only Admin)">
+    <app-user-management></app-user-management>
+  </mat-tab>
+  </div>
+
+  <div *ngIf="isAdmin">
+    <mat-tab  label="Plan Management(Only Admin)">
+      Plan Management
+    </mat-tab>
+    </div>
+
+</mat-tab-group>
+</div>

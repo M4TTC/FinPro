@@ -27,6 +27,9 @@ export class AppComponent {
       !this.jwtHelper.isTokenExpired(token)
     ) {
       this.userauth.loggedIn.next(true);
+      if (localStorage.getItem('role') == 'admin') {
+        this.userauth.admin.next(true);
+      }
     }
   }
 }
