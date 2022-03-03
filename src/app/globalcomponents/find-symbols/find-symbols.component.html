@@ -40,7 +40,7 @@
   <!--Alert Section-->
 
   <div *ngIf="loadingService.isLoading | async" class="loader-container">
-    <mat-spinner></mat-spinner>
+  <mat-spinner></mat-spinner>
   </div>
 
   <!--Portfolio Table Section-->
@@ -49,7 +49,7 @@
 
       <app-selected-portfolio-table [selectedPortfolio]="selectedPortfolio"></app-selected-portfolio-table>
       <br>
-      <button mat-raised-button color="warn" >
+      <button mat-raised-button color="warn" (click)="resetPfList()">
         Reset Your Portfolio      
      </button>
     </div>

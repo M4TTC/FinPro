@@ -23,6 +23,11 @@ export class NavbarComponent {
     this.UserAuth.loggedinUsername.forEach(
       (result) => (this.username = result)
     );
+    this.LoggedIn.forEach((result) => {
+      if (result == true) {
+        this.username = localStorage.getItem('username');
+      }
+    });
   }
   //**************************** ACTIONS SECTION *************************/
   logoclick() {

@@ -11,10 +11,10 @@ import { environment } from 'src/environments/environment';
 export class UserAuthService {
   securityObject: UserAuth = new UserAuth();
   readonly APIUrl_UserAuth = environment.APIUrl + 'Users';
-  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+  public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
-  private username: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  public username: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor(private http: HttpClient, private router: Router) {}
 

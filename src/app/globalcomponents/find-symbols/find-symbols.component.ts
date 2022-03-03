@@ -93,5 +93,9 @@ export class FindSymbolsComponent {
       });
     }
   }
+
+  resetPfList() {
+    location.reload();
+  }
   //******************************************************************************* */
 }
