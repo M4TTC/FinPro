@@ -7,9 +7,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './services/loader/interceptor.service';
 import { JwtModule } from '@auth0/angular-jwt';
 
-//Customized Modules
-import { UserprofileModule } from './userprofile/userprofile.module';
-
 //Global Components
 import { LandingPageComponent } from './globalcomponents/landing-page/landing-page.component';
 import { NavbarComponent } from './globalcomponents/navbar/navbar.component';
@@ -54,7 +51,6 @@ export function tokenGetter() {
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    UserprofileModule,
 
     MatButtonModule,
     MatToolbarModule,

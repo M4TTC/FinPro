@@ -12,6 +12,14 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
+
+  {
+    path: 'userprofile',
+    loadChildren: () =>
+      import('./userprofile/userprofile.module').then(
+        (mod) => mod.UserprofileModule
+      ),
+  },
   {
     path: 'userprofile/dashboard',
     component: UserDashboardComponent,
@@ -22,6 +30,7 @@ const routes: Routes = [
     component: UserSettingsComponent,
     canActivate: [AuthGuardService],
   },
+
   { path: '**', component: PageNotFoundComponent },
 ];
 
