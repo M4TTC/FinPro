@@ -20,7 +20,9 @@ export class NavbarComponent {
 
   ngOnInit(): void {
     this.LoggedIn = this.UserAuth.isLoggedIn;
-    this.username = localStorage.getItem('username');
+    this.UserAuth.loggedinUsername.forEach(
+      (result) => (this.username = result)
+    );
   }
   //**************************** ACTIONS SECTION *************************/
   logoclick() {

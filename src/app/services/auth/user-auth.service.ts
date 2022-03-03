@@ -14,6 +14,7 @@ export class UserAuthService {
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
+  private username: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -28,6 +29,9 @@ export class UserAuthService {
     return this.loggedIn.asObservable();
   }
 
+  get loggedinUsername() {
+    return this.username.asObservable();
+  }
   //****************** Sign Up Section *******************/
   signup(params: any) {
     let apiurl = this.APIUrl_UserAuth + '/signup';
@@ -63,6 +67,7 @@ export class UserAuthService {
         next: (result: object) => {
           Object.assign(this.securityObject, result);
           this.loggedIn.next(true);
+          this.username.next(this.securityObject.userName);
           this.router.navigate(['userprofile/dashboard']);
           localStorage.setItem('bearerToken', this.securityObject.bearerToken);
           localStorage.setItem('username', this.securityObject.userName);
