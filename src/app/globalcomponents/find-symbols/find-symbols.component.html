@@ -1,6 +1,5 @@
-<div *ngIf="loadingService.isLoading | async" class="loader-container">
-  <mat-progress-bar mode="query"></mat-progress-bar>
-</div>
+
+
 <div class="chipsContainer">
 
   <mat-form-field class="symbol-chip-list" appearance="fill">
@@ -40,7 +39,9 @@
     <br>
   <!--Alert Section-->
 
-
+  <div *ngIf="loadingService.isLoading | async" class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
 
   <!--Portfolio Table Section-->
 

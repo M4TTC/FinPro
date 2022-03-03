@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserAuthService } from 'src/app/services/auth/user-auth.service';
-import { LoadingServiceService } from 'src/app/services/loading-service.service';
+import { LoadingServiceService } from 'src/app/services/loader/loading-service.service';
 
 @Component({
   selector: 'app-signup',
@@ -32,7 +32,7 @@ export class SignupComponent {
 
   signup() {
     if (this.formGroup.valid) {
-      this.userAuth.signup();
+      this.userAuth.signup(this.formGroup.value);
     }
   }
 }

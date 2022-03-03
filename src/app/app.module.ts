@@ -3,7 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './services/loader/interceptor.service';
+import { JwtModule } from '@auth0/angular-jwt';
+
+//Customized Modules
+import { UserprofileModule } from './userprofile/userprofile.module';
 
 //Global Components
 import { LandingPageComponent } from './globalcomponents/landing-page/landing-page.component';
@@ -26,7 +31,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
 
+export function tokenGetter() {
+  return localStorage.getItem('jwt');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +54,7 @@ import { MatInputModule } from '@angular/material/input';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    UserprofileModule,
 
     MatButtonModule,
     MatToolbarModule,
@@ -56,8 +66,22 @@ import { MatInputModule } from '@angular/material/input';
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatInputModule,
+    MatMenuModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:5200'],
+        disallowedRoutes: [],
+      },
+    }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

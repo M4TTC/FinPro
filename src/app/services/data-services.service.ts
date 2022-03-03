@@ -10,7 +10,6 @@ export class DataServicesService {
   constructor(private http: HttpClient) {}
 
   getSymbols(param: string[]) {
-    console.log(param);
     let apiurl = this.APIDataUrl + param;
     return this.http.get(apiurl);
   }

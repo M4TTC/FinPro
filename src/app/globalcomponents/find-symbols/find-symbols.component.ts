@@ -6,7 +6,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { DataServicesService } from 'src/app/services/data-services.service';
-import { LoadingServiceService } from 'src/app/services/loading-service.service';
+import { LoadingServiceService } from 'src/app/services/loader/loading-service.service';
 import { symbols } from './symbols';
 
 @Component({
@@ -21,7 +21,7 @@ export class FindSymbolsComponent {
   symbols: string[] = [];
   allSymbols: string[] = [];
   selectedPortfolio: object = {};
-  selectedPortfolioIsEmpty = true;
+  selectedPortfolioIsEmpty: boolean = true;
 
   constructor(
     private dataSevices: DataServicesService,
@@ -86,6 +86,7 @@ export class FindSymbolsComponent {
         next: (result: object) => {
           this.selectedPortfolio = result;
           this.selectedPortfolioIsEmpty = false;
+          console.log(this.loadingService);
         },
         //console.log('selectPt', this.selectedPortfolio)
         error: (e) => console.log(e),
