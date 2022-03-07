@@ -19,9 +19,11 @@ export class UserAuthService {
   public username: BehaviorSubject<string> = new BehaviorSubject<string>('');
   public userrole: BehaviorSubject<string> = new BehaviorSubject<string>('');
   public admin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(private http: HttpClient, private router: Router) {}
 
   resetSecurityObject(): void {
+    this.securityObject.id = '';
     this.securityObject.userName = '';
     this.securityObject.bearerToken = '';
     this.securityObject.isAuthenticated = false;
@@ -83,6 +85,7 @@ export class UserAuthService {
           this.username.next(this.securityObject.userName);
           this.userrole.next(this.securityObject.role);
           this.router.navigate(['userprofile/dashboard']);
+          localStorage.setItem('uid', this.securityObject.id);
           localStorage.setItem('bearerToken', this.securityObject.bearerToken);
           localStorage.setItem('username', this.securityObject.userName);
           localStorage.setItem('role', this.securityObject.role);
@@ -105,6 +108,8 @@ export class UserAuthService {
     localStorage.removeItem('bearerToken');
     localStorage.removeItem('username');
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('role');
+    localStorage.removeItem('uid');
     this.router.navigate(['/login']);
   }
 

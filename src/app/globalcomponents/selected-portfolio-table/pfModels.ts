@@ -3,3 +3,9 @@ export interface pfData {
   Company: string;
   hisData: [{ Date: string; Var: string }];
 }
+
+export interface DialogData {
+  uid: string | null;
+  pfName: string;
+  pfSymbols: string[];
+}

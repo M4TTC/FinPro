@@ -1,13 +1,6 @@
 <form class="Form-login" [formGroup]="formGroup" (ngSubmit)="login()">
     <div class="login-container">
-      <div style="margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size:xx-large" *ngIf="loadingService.isLoading | async" class="loader-container">
-        <mat-spinner></mat-spinner>
-      </div>
+
       <mat-form-field appearance="fill">
         <mat-label>Enter your username </mat-label>
         <input required matInput formControlName="username" />
@@ -37,6 +30,14 @@
         <button mat-raised-button color="primary" type="sumbit">Log In</button>
       </p>
       <p>Are You A New Comer ? <a href="/signup">Register</a></p>
+    </div>
+    <div style="margin: 0;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:xx-large" *ngIf="loadingService.isLoading | async" class="loader-container">
+      <mat-spinner></mat-spinner>
     </div>
   </form>
   

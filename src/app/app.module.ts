@@ -10,7 +10,10 @@ import { JwtModule } from '@auth0/angular-jwt';
 //Global Components
 import { LandingPageComponent } from './globalcomponents/landing-page/landing-page.component';
 import { NavbarComponent } from './globalcomponents/navbar/navbar.component';
-import { SelectedPortfolioTableComponent } from './globalcomponents/selected-portfolio-table/selected-portfolio-table.component';
+import {
+  SelectedPortfolioTableComponent,
+  SavePortDialog,
+} from './globalcomponents/selected-portfolio-table/selected-portfolio-table.component';
 import { LoginComponent } from './globalcomponents/login/login.component';
 import { SignupComponent } from './globalcomponents/signup/signup.component';
 import { PageNotFoundComponent } from './globalcomponents/page-not-found/page-not-found.component';
@@ -29,6 +32,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 export function tokenGetter() {
   return localStorage.getItem('jwt');
@@ -43,6 +47,7 @@ export function tokenGetter() {
     LoginComponent,
     SignupComponent,
     PageNotFoundComponent,
+    SavePortDialog,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +68,7 @@ export function tokenGetter() {
     MatProgressSpinnerModule,
     MatInputModule,
     MatMenuModule,
+    MatDialogModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

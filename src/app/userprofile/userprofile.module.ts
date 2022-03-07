@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { MatCardModule } from '@angular/material/card';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { ChangePasswordComponent } from './components/user-settings/change-password/change-password.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,6 +22,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { UserManagementComponent } from './components/user-settings/user-management/user-management.component';
+import { UserSubscriptionComponent } from './components/user-settings/user-subscription/user-subscription.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,7 @@ import { UserManagementComponent } from './components/user-settings/user-managem
     UserSettingsComponent,
     ChangePasswordComponent,
     UserManagementComponent,
+    UserSubscriptionComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +55,8 @@ import { UserManagementComponent } from './components/user-settings/user-managem
     MatProgressSpinnerModule,
     MatInputModule,
     MatMenuModule,
+    MatCardModule,
+    MatGridListModule,
   ],
   exports: [],
 })

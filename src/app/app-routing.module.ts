@@ -7,6 +7,7 @@ import { SignupComponent } from './globalcomponents/signup/signup.component';
 import { AuthGuardService } from './services/auth/auth-guard.service';
 import { UserDashboardComponent } from './userprofile/components/user-dashboard/user-dashboard.component';
 import { UserSettingsComponent } from './userprofile/components/user-settings/user-settings.component';
+import { UserSubscriptionComponent } from './userprofile/components/user-settings/user-subscription/user-subscription.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'userprofile/settings',
     component: UserSettingsComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'userprofile/subscription',
+    component: UserSubscriptionComponent,
     canActivate: [AuthGuardService],
   },
 

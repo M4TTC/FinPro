@@ -86,7 +86,7 @@ export class FindSymbolsComponent {
         next: (result: object) => {
           this.selectedPortfolio = result;
           this.selectedPortfolioIsEmpty = false;
-          console.log(this.loadingService);
+          //console.log(this.loadingService);
         },
         //console.log('selectPt', this.selectedPortfolio)
         error: (e) => console.log(e),
