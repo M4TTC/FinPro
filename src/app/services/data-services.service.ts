@@ -6,6 +6,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataServicesService {
   readonly APIDataUrl = 'http://localhost:5281/api/findata/';
+  userPortfolioList: UserPortfolioList = {
+    uid: '',
+    portfolioList: [
+      {
+        pfName: '',
+        pfSymbols: [],
+      },
+    ],
+  };
 
   constructor(private http: HttpClient) {}
 
@@ -13,4 +22,11 @@ export class DataServicesService {
     let apiurl = this.APIDataUrl + param;
     return this.http.get(apiurl);
   }
+
+  saveUserPortfolio() {}
+}
+
+export interface UserPortfolioList {
+  uid: string;
+  portfolioList: [{ pfName: string; pfSymbols: string[] }];
 }
