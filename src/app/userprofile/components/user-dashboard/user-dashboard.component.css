@@ -1,0 +1,13 @@
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  div{
+    width: 90%;
+    margin:0 auto;
+    margin-top: 1%;
+  }
+
+  table{
+   width: 100%;
+  }

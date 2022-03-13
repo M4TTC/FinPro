@@ -34,7 +34,6 @@ export class SelectedPortfolioTableComponent {
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.selectedPortfolio);
-    //console.log('ChildComponent:', this.selectedPortfolio);
   }
 
   getTotalCost(): void {

@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserAuthService {
-  //***************************Propterties Section *********************/
+  //***************************Properties Section *********************/
   securityObject: UserAuth = new UserAuth();
   readonly APIUrl_UserAuth = environment.APIUrl + 'Users';
 
@@ -20,8 +20,6 @@ export class UserAuthService {
   public userrole: BehaviorSubject<string> = new BehaviorSubject<string>('');
   public admin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient, private router: Router) {}
-
   resetSecurityObject(): void {
     this.securityObject.id = '';
     this.securityObject.userName = '';
@@ -29,6 +27,8 @@ export class UserAuthService {
     this.securityObject.isAuthenticated = false;
     this.securityObject.role = '';
   }
+
+  constructor(private http: HttpClient, private router: Router) {}
   //****************** Make Properties Oberservable *******************/
 
   get isLoggedIn() {

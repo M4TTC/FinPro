@@ -24,6 +24,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { UserManagementComponent } from './components/user-settings/user-management/user-management.component';
 import { UserSubscriptionComponent } from './components/user-settings/user-subscription/user-subscription.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatMenuModule,
     MatCardModule,
     MatGridListModule,
+    MatExpansionModule,
   ],
   exports: [],
 })
