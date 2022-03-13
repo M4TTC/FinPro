@@ -37,7 +37,7 @@ export class UserDashboardComponent {
     this.userpfservice.getUserPfList(this._username).subscribe({
       next: (result: any) => {
         this._userpf = Object.values(result)[1];
-        console.log(this._userpf);
+        //console.log(this._userpf);
       },
       error: (err) => {
         alert(err);
