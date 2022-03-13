@@ -1,0 +1,14 @@
+.chipsContainer{
+    margin-top: 20%;
+    text-align: center;
+}
+
+.symbol-chip-list{
+    width: 40%;
+}
+
+.loader-container{
+  top: 10%;
+  left: 50%;
+  
+}

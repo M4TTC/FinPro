@@ -1,0 +1,46 @@
+﻿<Properties StartupConfiguration="{A534EA51-7FD1-41FD-861E-607D7DB370A3}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/UserPortfoliosController.cs">
+    <Files>
+      <File FileName="Controllers/UserPortfoliosController.cs" Line="29" Column="6" />
+      <File FileName="Services/UserPortfolioServices.cs" Line="29" Column="80" />
+      <File FileName="Services/UserService.cs" Line="33" Column="29" />
+      <File FileName="Models/DbSettings.cs" Line="12" Column="48" />
+      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="appsettings.json" Line="8" Column="39" />
+      <File FileName="Models/users.cs" Line="9" Column="29" />
+      <File FileName="Models/Findata.cs" Line="36" Column="23" />
+      <File FileName="Controllers/UsersController.cs" Line="41" Column="39" />
+      <File FileName="Controllers/FindataController.cs" Line="24" Column="29" />
+      <File FileName="Services/FindataService.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FindataAPI" expanded="True">
+            <Node name="FindataAPI" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="pyfiles" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.FindataAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

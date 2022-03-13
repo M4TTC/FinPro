@@ -1,0 +1,35 @@
+<mat-toolbar color="primary"> 
+    
+    <a mat-button class="logo" (click)="logoclick()">FinPro</a>
+    <div class="spacer"></div>
+
+    <div
+    *ngIf="LoggedIn | async as isLoggedIn; then loggedin; else loggedout"
+  ></div>
+
+  <ng-template #loggedin>
+    <span>
+      Greetings, {{ username }}
+      <mat-icon [matMenuTriggerFor]="menu">account_circle</mat-icon>
+    </span>
+  </ng-template>
+
+  <ng-template #loggedout>
+    <span>
+      <a mat-button (click)="login()" #othercontent>Log In</a>
+      <a mat-raised-button color="accent" (click)="signup()">Sign Up</a>
+    </span>
+  </ng-template>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="navToDashboard()">
+    <mat-icon>dashboard</mat-icon>Dashboard
+  </button>
+  <button mat-menu-item (click)="navToSettings()">
+    <mat-icon>settings</mat-icon>Settings
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>eject</mat-icon> Log Out
+  </button>
+</mat-menu>
+</mat-toolbar>

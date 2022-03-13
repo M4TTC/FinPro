@@ -1,0 +1,61 @@
+
+
+<div class="chipsContainer">
+
+  <mat-form-field class="symbol-chip-list" appearance="fill">
+      <mat-label>Step 1. Input Symbols Here</mat-label>
+      
+      <mat-chip-list #chipList aria-label="Symbol selection">
+        <mat-chip
+          *ngFor="let symbol of symbols"
+          (removed)="remove(symbol)">
+          {{symbol}}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <input
+          placeholder="At Once, Input All The Symbols You Want"
+          #symbolInput
+          [formControl]="symbolCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let symbol of filteredSymbols | async" [value]="symbol">
+          {{symbol}}
+        </mat-option>
+      </mat-autocomplete>
+
+    </mat-form-field>
+    
+    <br>
+    <button mat-raised-button color="primary" (click)="addToMyPortfolio()">
+      Step 2. Add To Your PortFolio
+    </button>
+    <br>
+  <!--Alert Section-->
+
+  <div *ngIf="loadingService.isLoading | async" class="loader-container">
+  <mat-spinner style="margin: 0;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:xx-large"></mat-spinner>
+  </div>
+
+  <!--Portfolio Table Section-->
+
+    <div class="porttableContainer" *ngIf = "selectedPortfolioIsEmpty == false">
+
+      <app-selected-portfolio-table [selectedPortfolio]="selectedPortfolio"></app-selected-portfolio-table>
+      <br>
+      <button mat-raised-button color="warn" (click)="resetPfList()">
+        Reset Your Portfolio      
+     </button>
+    </div>
+  </div>

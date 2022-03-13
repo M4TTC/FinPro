@@ -1,0 +1,36 @@
+<form class="Form-login" [formGroup]="formGroup" (ngSubmit)="signup()">
+    <div class="signup-container">
+      <div *ngIf="loaddingService.isLoading | async" class="loader-container">
+        <mat-progress-bar mode="query"></mat-progress-bar>
+      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your username </mat-label>
+        <input matInput required formControlName="username" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+          required
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <br />
+      <p>
+        <button mat-raised-button color="accent" type="sumbit">Sign Up</button>
+      </p>
+      <p>Aleady Have An Account ? <a href="/login">Log In</a></p>
+    </div>
+  </form>
