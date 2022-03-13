@@ -16,6 +16,7 @@ export class UserDashboardComponent {
   displayedColumns: string[] = ['Symbol', 'Company', 'Date', '1-Day VaR'];
 
   _userpf: any;
+  isUserpfExist: boolean = false;
 
   constructor(
     private userpfservice: UserPortfolioService,
@@ -36,7 +37,10 @@ export class UserDashboardComponent {
     //console.log(this._username);
     this.userpfservice.getUserPfList(this._username).subscribe({
       next: (result: any) => {
-        this._userpf = Object.values(result)[1];
+        if (result != null) {
+          this.isUserpfExist = true;
+          this._userpf = Object.values(result)[1];
+        }
         //console.log(this._userpf);
       },
       error: (err) => {
