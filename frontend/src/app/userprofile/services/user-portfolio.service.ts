@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { filter } from 'rxjs';
+import { DialogData } from 'src/app/globalcomponents/selected-portfolio-table/pfModels';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,4 +15,6 @@ export class UserPortfolioService {
     let params = new HttpParams().set('username', param);
     return this.http.get(this.APIUrl_UserPf, { params: params });
   }
+
+  saveToUserPf(param: DialogData) {}
 }

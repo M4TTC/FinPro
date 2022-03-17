@@ -79,11 +79,8 @@ namespace FindataAPI.Services
 				{
 					return true;
 				}
-            }
-
-            else
-            {
-				return false;
+          } else
+            {return false;
             }
 
 		}

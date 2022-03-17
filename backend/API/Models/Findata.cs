@@ -32,9 +32,9 @@ namespace FindataAPI.Models {
 
     [BsonIgnoreExtraElements]
     public class UserPortfolioList
-    {
-        public string Username { get; set; }
-        public IEnumerable<Pflist>? Pflist { get; set; }
+  {
+    public string? Username { get; set; }
+    public List<Pflist>? Pflist { get; set; }
 
     }
 

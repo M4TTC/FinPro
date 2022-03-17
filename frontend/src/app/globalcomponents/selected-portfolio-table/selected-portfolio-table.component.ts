@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { AuthGuardService } from 'src/app/services/auth/auth-guard.service';
 import { UserAuthService } from 'src/app/services/auth/user-auth.service';
+import { UserPortfolioService } from 'src/app/userprofile/services/user-portfolio.service';
 import { DialogData } from './pfModels';
 
 @Component({
@@ -20,7 +21,7 @@ export class SelectedPortfolioTableComponent {
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['Symbol', 'Company', 'Date', '1-Day VaR'];
   pfProfile: DialogData = {
-    uid: '',
+    username: '',
     pfName: '',
     pfSymbols: [],
   };
@@ -29,7 +30,8 @@ export class SelectedPortfolioTableComponent {
     private canAccess: AuthGuardService,
     public dialog: MatDialog,
     private userauth: UserAuthService,
-    private route: Router
+    private route: Router,
+    private userPfService: UserPortfolioService
   ) {}
 
   ngOnInit(): void {
@@ -62,13 +64,19 @@ export class SelectedPortfolioTableComponent {
             this.route.navigate(['login']);
           } else {
             this.pfProfile.pfSymbols.push(ele.symbol);
-            this.pfProfile.uid = localStorage.getItem('uid');
+            this.pfProfile.username = localStorage.getItem('username');
             this.pfProfile.pfName = result;
             //console.log(this.pfProfile);
+            this.savetoUserportfolio(this.pfProfile);
           }
         });
       });
     }
+  }
+
+  savetoUserportfolio(param: DialogData) {
+    console.log('save to Portfolio', param);
+    this.userPfService.saveToUserPf(param);
   }
 }
 
@@ -86,9 +94,5 @@ export class SavePortDialog {
 
   onNoClick(): void {
     this.dialogRef.close();
-  }
-
-  savePf() {
-    console.log('pfName');
   }
 }

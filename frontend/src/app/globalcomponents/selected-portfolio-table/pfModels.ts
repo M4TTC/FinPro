@@ -5,7 +5,7 @@ export interface pfData {
 }
 
 export interface DialogData {
-  uid: string | null;
+  username: string | null;
   pfName: string;
   pfSymbols: string[];
 }

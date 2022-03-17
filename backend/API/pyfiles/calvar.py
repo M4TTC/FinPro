@@ -115,12 +115,12 @@ def job():
         param_c = x['Name']
         param_td = tdate
         print('START TO PROCESS {0}, TODAY is {1}'.format(param_s, param_td))
-        # if symbol is not exist in the DB, we would create a new document for the ticker.
+        # if symbol does not exist in the DB, we would create a new document for the ticker.
         if not symbolIsExist(param_s):
             param_tv = cal_var(param_s)
             crt_new_doc(param_s, param_c, param_td, param_tv)
 
-        # if symbol is exist and today's date is exist, but today's var is not exist, we would update the doc for the ticker.
+        # if symbol exists and today's date doesn't exist, but today's var does not exist, we would update the doc for the ticker.
         elif symbolIsExist(param_s) and (not tDateIsExist(param_s, tdate)):
             param_tv = cal_var(param_s)
             upd_var(param_s, param_td, param_tv)
