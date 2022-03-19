@@ -1,7 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { filter } from 'rxjs';
-import { DialogData } from 'src/app/globalcomponents/selected-portfolio-table/pfModels';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,5 +14,12 @@ export class UserPortfolioService {
     return this.http.get(this.APIUrl_UserPf, { params: params });
   }
 
-  saveToUserPf(param: DialogData) {}
+  saveToUserPf(param: any) {
+    console.log(param);
+    const headers = { 'content-type': 'application/json' };
+    //const body = JSON.stringify(param);
+    return this.http.post(this.APIUrl_UserPf + '/saveportfolio', param, {
+      headers: headers,
+    });
+  }
 }

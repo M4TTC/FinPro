@@ -74,9 +74,16 @@ export class SelectedPortfolioTableComponent {
     }
   }
 
-  savetoUserportfolio(param: DialogData) {
-    console.log('save to Portfolio', param);
-    this.userPfService.saveToUserPf(param);
+  savetoUserportfolio(data: any) {
+    //console.log('save to Portfolio', param);
+    var param = {
+      username: data.username,
+      pflist: [{ pfname: data.pfName, symbols: data.pfSymbols }],
+    };
+    this.userPfService.saveToUserPf(param).subscribe({
+      next: (result) => console.log(result),
+    });
+    console.log(param);
   }
 }
 

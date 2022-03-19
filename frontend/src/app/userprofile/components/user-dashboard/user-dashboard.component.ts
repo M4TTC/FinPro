@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserAuthService } from 'src/app/services/auth/user-auth.service';
+import { LoadingServiceService } from 'src/app/services/loader/loading-service.service';
 import { UserPortfolioService } from '../../services/user-portfolio.service';
 
 @Component({
@@ -16,11 +17,12 @@ export class UserDashboardComponent {
   displayedColumns: string[] = ['Symbol', 'Company', 'Date', '1-Day VaR'];
 
   _userpf: any;
-  isUserpfExist: boolean = false;
+  isUserpfExist?: boolean;
 
   constructor(
     private userpfservice: UserPortfolioService,
-    private userauth: UserAuthService
+    private userauth: UserAuthService,
+    public loadingService: LoadingServiceService
   ) {}
   //
   ngOnInit(): void {
@@ -40,6 +42,8 @@ export class UserDashboardComponent {
         if (result != null) {
           this.isUserpfExist = true;
           this._userpf = Object.values(result)[1];
+        } else {
+          this.isUserpfExist = false;
         }
         //console.log(this._userpf);
       },
