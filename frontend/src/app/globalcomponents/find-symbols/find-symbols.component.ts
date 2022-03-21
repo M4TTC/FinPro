@@ -20,6 +20,7 @@ export class FindSymbolsComponent {
   filteredSymbols: Observable<string[]>;
   symbols: string[] = [];
   allSymbols: string[] = [];
+
   selectedPortfolio: object = {};
   selectedPortfolioIsEmpty: boolean = true;
 
@@ -29,7 +30,7 @@ export class FindSymbolsComponent {
   ) {
     this.filteredSymbols = this.symbolCtrl.valueChanges.pipe(
       startWith(null),
-      map((ele) => (ele ? this._filter(ele) : [])) // [] could be this.allSymbols.slice() to list all symbols.
+      map((ele) => (ele ? this._filter(ele) : this.allSymbols.slice())) // [] could be this.allSymbols.slice() to list all symbols.
     );
   }
 
