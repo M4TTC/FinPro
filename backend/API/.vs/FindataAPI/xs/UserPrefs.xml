@@ -1,19 +1,15 @@
 ﻿<Properties StartupConfiguration="{A534EA51-7FD1-41FD-861E-607D7DB370A3}|Default">
-  <MonoDevelop.Ide.ItemProperties.FindataAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Services/UserPortfolioServices.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/UsersController.cs">
     <Files>
-      <File FileName="Controllers/UserPortfoliosController.cs" Line="34" Column="25" />
-      <File FileName="Services/UserPortfolioServices.cs" Line="57" Column="1" />
+      <File FileName="Controllers/UserPortfoliosController.cs" Line="41" Column="12" />
+      <File FileName="Services/UserPortfolioServices.cs" Line="46" Column="6" />
       <File FileName="Models/users.cs" Line="1" Column="1" />
       <File FileName="Controllers/UsersController.cs" Line="75" Column="32" />
-      <File FileName="Models/Findata.cs" Line="40" Column="1" />
-      <File FileName="Models/DbSettings.cs" Line="17" Column="1" />
+      <File FileName="Models/Findata.cs" Line="24" Column="25" />
+      <File FileName="Models/DbSettings.cs" Line="10" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,7 +19,9 @@
               <Node name="Dependencies" expanded="True">
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="UsersController.cs" selected="True" />
+              </Node>
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="pyfiles" expanded="True" />
@@ -38,4 +36,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.FindataAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
 </Properties>
